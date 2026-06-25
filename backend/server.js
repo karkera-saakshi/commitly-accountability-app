@@ -1,5 +1,7 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const commitlyRoutes = require("./routes/commitlyRoutes")
 let app = express();
 app.use(cors());
 app.use(express.json());

@@ -1,9 +1,26 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 const Signup = () =>{
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");
+    const nav = useNavigate();
+    let handleSubmit = () => {
+      axios.post("http://localhost:9000/signup", { username, email, pass })
+      .then(()=>{
+        alert("Signup successful");
+        setUsername("");
+        setEmail("");
+        setPass("");
+        nav("/login")
+      })
+      .catch((e)=>{
+        alert("Error: "+e.response.data);
+      })
+    }
     return (
    <div>
       <h1>Commitly</h1>
@@ -13,8 +30,8 @@ const Signup = () =>{
         <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Enter Username"/> <br />
         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter Email"/> <br />
         <input type="password" value={pass} onChange={(e) => setPass(e.target.value)} placeholder="Enter Password"/> <br />
-        <button >Submit</button> <br />
-        <Link to="/">Already have an account?</Link>
+        <button onClick = {handleSubmit}>Submit</button> <br />
+        <Link to="/login">Already have an account?</Link>
       </div>
     </div>
     )
