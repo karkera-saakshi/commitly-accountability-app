@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Dashboard from "./Dashboard";
 
 const Signup = () =>{
     const [username, setUsername] = useState("");
@@ -15,7 +16,7 @@ const Signup = () =>{
         setUsername("");
         setEmail("");
         setPass("");
-        nav("/login")
+        nav("/dashboard");
       })
       .catch((e)=>{
         alert("Error: "+e.response.data);

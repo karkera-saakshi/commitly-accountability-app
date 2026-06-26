@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import Dashboard from "./Dashboard";
+
 let Login = () =>{
     const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");
+    let nav = useNavigate();
     let handleSubmit = () =>
     {
       axios.post("http://localhost:9000/login", { email, pass })
@@ -11,6 +15,7 @@ let Login = () =>{
         alert("Login successful");
         setEmail("");
         setPass("");
+        nav("/dashboard");
       })
       .catch((e)=>{
         alert("Error: "+e.response.data);
