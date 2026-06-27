@@ -53,4 +53,17 @@ let handleLogin = (obj, res) =>
     })
     .finally(() => client.close());
 }
-module.exports = { handleSignup, handleLogin};
+
+let handleTeam = (obj, res) =>
+{
+    let client = new MongoClient(url);
+    client.connect();
+    let db = client.db("commitly")
+    let coll = db.collection("teams");
+    coll.insertOne(obj)
+    .then((result)=> res.send(result))
+    .catch((err)=>{console.log(err)})
+    .finally(()=>{ client.close() })
+}
+
+module.exports = { handleSignup, handleLogin, handleTeam };

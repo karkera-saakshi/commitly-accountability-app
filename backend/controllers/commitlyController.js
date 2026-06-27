@@ -6,4 +6,8 @@ let handleSignup = (req, res) =>{
 let handleLogin = (req, res) =>{
     commitlyModel.handleLogin(req.body, res);
 }
-module.exports = { handleSignup, handleLogin };
+
+let handleTeam = (req, res) => {
+    commitlyModel.handleTeam(req.body, res);
+}
+module.exports = { handleSignup, handleLogin, handleTeam };
