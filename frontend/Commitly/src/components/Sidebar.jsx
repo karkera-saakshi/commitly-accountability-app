@@ -8,7 +8,7 @@ let Sidebar = () =>{
     return (
    <div>
       <span>Commitly</span> <br />
-      <button>View Team</button> <br />
+      {/* <button>View Team</button> <br /> */}
       <button onClick={handleClick}>Create Team</button>
     </div>
     )

@@ -10,4 +10,9 @@ let handleLogin = (req, res) =>{
 let handleTeam = (req, res) => {
     commitlyModel.handleTeam(req.body, res);
 }
-module.exports = { handleSignup, handleLogin, handleTeam };
+
+let viewTeam = () => {
+
+}
+
+module.exports = { handleSignup, handleLogin, handleTeam, viewTeam };

@@ -15,6 +15,7 @@ let Login = () =>{
         alert("Login successful");
         setEmail("");
         setPass("");
+        localStorage.setItem("email", email);
         nav("/dashboard");
       })
       .catch((e)=>{

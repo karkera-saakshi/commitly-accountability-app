@@ -1,9 +1,13 @@
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 let Main = () =>{
-    
+    axios.get("http://localhost:9000/myTeam")
     return (
    <div>
-      <h1>Main Section</h1>
+      <div>
+        <h3>Title: </h3>
+        <p>Leader: </p>
+      </div>
     </div>
     )
 }

@@ -35,7 +35,8 @@ let Create = () =>{
             }
             seen.add(mail)
         }
-        axios.post("http://localhost:9000/team", { team, num, email })
+        const leader = localStorage.getItem("email")
+        axios.post("http://localhost:9000/team", { team, num, email, leader })
         .then(()=> {
             alert("Team sucessfully created");
             setTeam("");

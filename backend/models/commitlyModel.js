@@ -66,4 +66,9 @@ let handleTeam = (obj, res) =>
     .finally(()=>{ client.close() })
 }
 
-module.exports = { handleSignup, handleLogin, handleTeam };
+let viewTeam = () =>
+{
+
+}
+
+module.exports = { handleSignup, handleLogin, handleTeam, viewTeam };
